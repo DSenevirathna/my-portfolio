@@ -4,6 +4,7 @@ import "./globals.css";
 //components
 import Header from "../components/ui/Header";
 import PageTransition from "@/components/ui/PageTransition";
+import StairTransaction from "@/components/ui/StairTransaction";
 
 const jetBrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
@@ -25,6 +26,7 @@ export default function RootLayout({ children }) {
           className={`${jetBrainsMono.variable}`}
       >
           <Header />
+          <StairTransaction/>
           <PageTransition>
             {children}
           </PageTransition>
