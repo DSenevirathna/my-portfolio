@@ -6,6 +6,7 @@ import React from 'react'
 
 //components
 import Stairs from './Stairs'
+import { Dhurjati } from 'next/font/google'
 
 
 
@@ -19,7 +20,19 @@ const StairTransaction = () => {
                         <Stairs/>
                     
                     </div>
-                    <motion.div className=''/>
+                    <motion.div className='h-screen w-screen fixed bg-background  top-0 
+                        pointer-events-none' 
+                        initial = {{opacity:1}}
+                        animate ={{opacity:0,
+                            transition:{
+                                delay:1,
+                                duration: 0.4,
+                                ease:"easeInOut",
+                            
+                            }
+                        }}
+
+                    />
                     
             </div>
         </AnimatePresence>
