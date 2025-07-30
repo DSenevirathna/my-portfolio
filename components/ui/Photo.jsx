@@ -3,11 +3,11 @@
 import React from 'react'
 import {motion} from 'framer-motion'
 import Image  from 'next/image'
-import profilePic from '@/public/myPic.png' 
+import profilePic from '@/public/profilePic.jpeg' 
 
 const Photo = () => {
   return (
-    <div className='w-full h-full relative'>
+    <div className="w-full h-full flex items-center justify-center relative">
 
     
       <motion.div
@@ -24,21 +24,22 @@ const Photo = () => {
                 opacity: 1,
                 transition : {delay : 2.4 , duration: 0.4 , ease:"easeInOut"},
               }}
-              className='w-[298px] h-[298px] xl:w-[398px] xl:h-[398px] mix-blend-lighten absolute'>
-                <Image
+              className="absolute inset-0 m-auto w-[298px] h-[298px] xl:w-[400px] xl:h-[400px] mix-blend-lighten flex items-center justify-center"
+            >
+              <Image
                 src={profilePic}
                 priority
                 quality={100}
                 fill
                 alt='my-photo'
-                className=' rounded-full object-contain'
-                />
+                className='rounded-full object-contain'
+              />
             </motion.div>
 
              {/*circle*/}
-             <motion.svg className="w-[310px] xl:w-[506px] h-[310px] xl:h-[506px] " 
+             <motion.svg className="w-[310px] h-[310px] xl:w-[420px] xl:h-[420px]" 
               fill="transparent"
-              viewBox="0 0 506 506 "
+              viewBox="0 0 506 506"
               xmlns="http://www.w3.org/2000/svg"
 
 

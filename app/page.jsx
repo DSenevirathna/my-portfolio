@@ -4,6 +4,7 @@ import {FiDownload} from 'react-icons/fi'
 import Socials from '@/components/ui/Socials'
 import Photo from '@/components/ui/Photo'
 import BlurText from "@/components/ui/BlurText";
+import Stats from "@/components/ui/Stats"
 
 const Home = () => {
   return (
@@ -59,6 +60,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <Stats/>
     </section>
   )
 }
