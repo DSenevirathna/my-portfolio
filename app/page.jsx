@@ -3,6 +3,7 @@ import {Button} from '@/components/ui/button'
 import {FiDownload} from 'react-icons/fi'
 import Socials from '@/components/ui/Socials'
 import Photo from '@/components/ui/Photo'
+import BlurText from "@/components/ui/BlurText";
 
 const Home = () => {
   return (
@@ -13,7 +14,20 @@ const Home = () => {
           <div className='text-center xl:text-left order-1 xl:order-1'>
             <span className='text-xl'>Software Developer</span>
             <h1 className='h1 mb-6'>
-              Hello I'm <br/><span className='text-primary'>Devdini Senevirathna</span>
+              Hello I'm <br/><span className='text-primary'>
+
+             
+
+
+            <BlurText
+              text="Devdini Senevirathna"
+              delay={150}
+              animateBy="sentences"
+              direction="top"
+              
+              className="text-10xl mb-8"
+            />
+              </span>
             </h1>
             <p className='max-w-[500px] mb-9 text-white/80'>
               I'm a software developer passionate about building innovative, scalable, and efficient full-stack solutions.
