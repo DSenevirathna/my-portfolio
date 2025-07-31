@@ -25,16 +25,13 @@ const about={
   info:[
     {
       fieldName: "Name",
-      fieldValue : "Devdini Senevirathna"
+      fieldValue : "Devdini Senevirathna  "
     },
     {
       fieldName: "Phone",
       fieldValue : "(+94) 76 547 0666"
     },
-    {
-      fieldName: "Email",
-      fieldValue : "devdinichnaiya2001@gmail.com"
-    },
+   
     {
       fieldName: "Freelance",
       fieldValue : "Available"
@@ -42,6 +39,10 @@ const about={
     {
       fieldName: "Languages",
       fieldValue : "English, Sinhala"
+    },
+    {
+      fieldName: "Email",
+      fieldValue : "devdinichnaiya2001@gmail.com"
     },
   ]
 };
@@ -211,12 +212,12 @@ const resume = () => {
             <div className='flex flex-col gap-[30px]'>
               <h3 className='text-4xl font-bold'>{about.title}</h3>
               <p className='max-w-[600px] text-white/60 mx-auto xl:mx-0'>{about.Description}</p>
-              <ul className='grid grdi-cols-1 xl:grid-cols-2 gap-y-2 max-w-[620px] mx-auto xl:mx'>
+              <ul className='grid grid-cols-1 xl:grid-cols-2 gap-y-2 max-w-[620px] mx-auto xl:mx'>
                 {about.info.map((item,index) => {
                   return(
-                    <li key={index}>
-                      <span>{item.fieldName}</span>
-                      <span>{item.fieldValue}</span>
+                    <li key={index} className='flex items-center justify-center xl:justify-start gap-4'>
+                      <span className='text-white/60'>{item.fieldName}</span>
+                      <span className='text-xl'>{item.fieldValue}</span>
                     </li>
                   )
                 })}
