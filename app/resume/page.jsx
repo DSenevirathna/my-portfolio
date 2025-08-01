@@ -21,7 +21,7 @@ from 'react-icons/si'
 //about data
 const about={
   title: 'About me',
-  Description:"lorem ipsem",
+  Description:"I'm a passionate software developer with a strong foundation in both frontend and backend technologies. Currently pursuing my degree in Information Technology at the University of Moratuwa, I specialize in creating modern, responsive web applications using React, Next.js, and Spring Boot. I love turning complex problems into simple, beautiful solutions and am always eager to learn new technologies.",
   info:[
     {
       fieldName: "Name",
@@ -51,7 +51,7 @@ const about={
 const education={
   icon: "/assets/resume/cap.svg",
   title: "My education",
-  Description:"lorem ipsem",
+  Description:"My educational journey reflects my commitment to excellence in technology and software development. From achieving an outstanding Z-score in Advanced Levels to pursuing a specialized degree in Information Technology, I've consistently demonstrated strong analytical and problem-solving skills.",
   items:[
     {
       institution: "University of Moratuwa",
@@ -70,7 +70,7 @@ const education={
 //skills data
 const skills={
   title: "My skills",
-  Description:"lorem ipsem",
+  Description:"I've developed a comprehensive skill set spanning both frontend and backend technologies. My expertise includes modern JavaScript frameworks, responsive design, UI/UX principles, and full-stack development. I'm passionate about creating user-centric applications and continuously expanding my technical knowledge.",
   skillList:[
     {
       icon: <FaHtml5/>,
@@ -124,7 +124,7 @@ const resume = () => {
     }}
     className='min-h-[80vh] flex items-center justify-center py-12 xl:py-0'
    >
-    <div className="container mx-auto">
+    <div className="container mx-auto px-4 xl:px-8 2xl:px-16">
       <Tabs defaultValue="education" 
             className="flex flex-col xl:flex-row gap-[60px]"
       >
@@ -208,20 +208,25 @@ const resume = () => {
           </TabsContent>
 
            {/*about me*/}
-           <TabsContent value="about" className="w-full xl:text-left">
+           <TabsContent value="about" className="w-full">
             <div className='flex flex-col gap-[30px]'>
-              <h3 className='text-4xl font-bold'>{about.title}</h3>
-              <p className='max-w-[600px] text-white/60 mx-auto xl:mx-0'>{about.Description}</p>
-              <ul className='grid grid-cols-1 xl:grid-cols-2 gap-y-2 max-w-[620px] mx-auto xl:mx'>
-                {about.info.map((item,index) => {
-                  return(
-                    <li key={index} className='flex items-center justify-center xl:justify-start gap-4'>
-                      <span className='text-white/60'>{item.fieldName}</span>
-                      <span className='text-xl'>{item.fieldValue}</span>
-                    </li>
-                  )
-                })}
-              </ul>
+              <div className='text-center xl:text-left'>
+                <h3 className='text-4xl font-bold mb-4'>{about.title}</h3>
+                <p className='max-w-[600px] text-white/60 mx-auto xl:mx-0'>{about.Description}</p>
+              </div>
+              
+              <div className='bg-[#232329] rounded-xl p-8 max-w-[800px] mx-auto xl:mx-0'>
+                <ul className='grid grid-cols-1 gap-6'>
+                  {about.info.map((item,index) => {
+                    return(
+                      <li key={index} className='flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 p-4 border-b border-white/10 last:border-b-0'>
+                        <span className='text-white/60 font-medium min-w-[120px]'>{item.fieldName}:</span>
+                        <span className='text-xl text-white font-semibold'>{item.fieldValue}</span>
+                      </li>
+                    )
+                  })}
+                </ul>
+              </div>
             </div>
             
           </TabsContent>

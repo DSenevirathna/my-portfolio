@@ -1,3 +1,5 @@
+"use client"
+
 import React from 'react'
 import {Button} from '@/components/ui/button'
 import {FiDownload} from 'react-icons/fi'
@@ -7,9 +9,18 @@ import BlurText from "@/components/ui/BlurText";
 import Stats from "@/components/ui/Stats"
 
 const Home = () => {
+  const downloadCV = () => {
+    const link = document.createElement('a');
+    link.href = '/Devdini-Senevirathna.pdf';
+    link.download = 'Devdini-Senevirathna.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <section className='h-full'>
-      <div className='container mx-auto h-full '>
+      <div className='container mx-auto h-full px-4 xl:px-8 2xl:px-16'>
         <div className='flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24'>
           {/*text*/}
           <div className='text-center xl:text-left order-1 xl:order-1'>
@@ -26,7 +37,7 @@ const Home = () => {
               animateBy="sentences"
               direction="top"
               
-              className="text-10xl mb-8"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl mb-8 text-center xl:text-left"
             />
               </span>
             </h1>
@@ -39,7 +50,8 @@ const Home = () => {
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="uppercase flex items-center gap-2" 
+                className="uppercase flex items-center gap-2"
+                onClick={downloadCV}
               >
                  <span>Download CV </span>
                  <FiDownload className='text-xl'/>

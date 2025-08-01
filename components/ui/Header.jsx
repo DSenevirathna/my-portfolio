@@ -20,9 +20,9 @@ import MobileNav from "./MobileNav";
             {/*desktop nav hire me button*/}
             <div className="hidden xl:flex items-center gap-6 ">
                 <Nav />
-                <Link href="/contact">
+                <a href="mailto:devdinichaniya2001@gmail.com?subject=Hiring%20Inquiry%20-%20Devdini%20Senevirathna&body=Hi%20Devdini,%0D%0A%0D%0AI%20would%20like%20to%20discuss%20a%20potential%20opportunity%20with%20you.%0D%0A%0D%0APlease%20let%20me%20know%20when%20you're%20available%20for%20a%20conversation.%0D%0A%0D%0ABest%20regards,">
                     <Button>Hire me</Button>
-                </Link>
+                </a>
             </div>
 
 

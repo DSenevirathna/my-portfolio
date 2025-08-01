@@ -26,9 +26,9 @@ import Image from 'next/image'
 const projects = [
   {
     num:'01',
-    category:'fullstack',
+    category:'My Portfolio',
     title:'My Portfolio',
-    description:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque explicabo perferendis obcaecati delectus hic consequuntur, reiciendis, consectetur velit quo veniam ratione modi veritatis nobis placeat quaerat ut nihil vitae autem.',
+    description:'A modern, responsive personal portfolio website built with Next.js and Tailwind CSS. Features include smooth animations with Framer Motion, interactive project showcase, downloadable CV, and contact form. The design emphasizes clean aesthetics with a dark theme and orange accents.',
     stack:[
       {name: "Next Js" },
       {name: "Tailwind CSS" },
@@ -36,14 +36,14 @@ const projects = [
       
     ],
     image:link1,
-    live:'link',
+    live:'https://github.com/DSenevirathna/my-portfolio.git',
   },
 
   {
     num:'02',
-    category:'fullstack',
+    category:'Employee Management System-Full Stack Project(team project)',
     title:'Employee Management System',
-    description:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque explicabo perferendis obcaecati delectus hic consequuntur, reiciendis, consectetur velit quo veniam ratione modi veritatis nobis placeat quaerat ut nihil vitae autem.',
+    description:'A comprehensive Employee Management System built with Next.js frontend and Spring Boot backend. Features include employee profiles, project management, timesheet tracking, leave management, and AI-driven analytics. This was a collaborative team project with Creative Software.',
     stack:[
       {name: "Next Js" },
       {name: "Tailwind CSS" },
@@ -54,35 +54,33 @@ const projects = [
       
     ],
     image:link2,
-    live:'link',
+    live:'https://github.com/LalalnaGurusinghe/Shiftly-EMS-FrontEnd-Creative_software.git',
   },
 
   {
     num:'03',
-    category:'UI/UX Design',
+    category:'Cake Shop App-UI/UX Design',
     title:'Cake Shop App',
-    description:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque explicabo perferendis obcaecati delectus hic consequuntur, reiciendis, consectetur velit quo veniam ratione modi veritatis nobis placeat quaerat ut nihil vitae autem.',
+    description:'A comprehensive UI/UX design project for a cake shop mobile application. Created using Figma, this project includes user interface designs, user experience flows, wireframes, and interactive prototypes. The design focuses on creating an intuitive and visually appealing experience for customers to browse and order cakes.',
     stack:[
       {name: "Figma" },
       
       
     ],
     image:link3,
-    live:'link',
   },
 
   {
     num:'04',
-    category:'UI/UX Design',
-    title:'Coffee Shop App',
-    description:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque explicabo perferendis obcaecati delectus hic consequuntur, reiciendis, consectetur velit quo veniam ratione modi veritatis nobis placeat quaerat ut nihil vitae autem.',
+    category:'Coffee Shop Website-UI/UX Design',
+    title:'Coffee Shop Website',
+    description:'A complete UI/UX design for a coffee shop website created in Figma. This project encompasses responsive web design, user interface mockups, user experience wireframes, and interactive prototypes. The design emphasizes creating a warm, inviting atmosphere that reflects the coffee shop brand and enhances the online ordering experience.',
     stack:[
       {name: "Figma" },
       
       
     ],
     image:link4,
-    live:'link',
   },
   
 
@@ -105,7 +103,7 @@ const work = () => {
       animate={{opacity:1, transition: {delay:2.4 , duration:0.4 , ease:"easeIn"}}}
       className='min-h-[80vh] flex flex-col justify-center py-12 xl:px-0'
     >
-      <div className='container mx-auto'>
+      <div className='container mx-auto px-4 xl:px-8 2xl:px-16'>
           <div className='flex flex-col xl:flex-row xl:gap-[30px]'>
             <div className='w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none'>
               <div className='flex flex-col gap-[30px] h-[50%]'>
@@ -114,15 +112,15 @@ const work = () => {
                  {/*project category*/}
                  <h2
                   className='text-[42px] font-bold leading-none text-white group-hover:text-primary transition-all duration-500 capitalize'
-                 >{project.category} project</h2>
+                 >{project.category} </h2>
 
                   {/*project description*/}
                   <p className='text-white/60'>{project.description}</p>
 
                    {/*stack*/}
-                   <ul className='flex gap-4'>
+                   <ul className='flex flex-wrap gap-4'>
                       {project.stack.map((item, index) => {
-                        return <li key={index} className='text-xl text-primary'>{item.name}{index !== project.stack.length - 1 && ","}</li>
+                        return <li key={index} className='text-xl text-primary whitespace-nowrap'>{item.name}{index !== project.stack.length - 1 && ","}</li>
 
 
                         
@@ -133,18 +131,20 @@ const work = () => {
                    <div className='border border-white/20'></div>
                     {/*buttons*/}
                     <div>
-                      <Link href={project.live}>
-                        <TooltipProvider delayDuration={100} >
-                          <Tooltip>
-                            <TooltipTrigger className='w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group'>
-                              <BsArrowUpRight className='text-white text-2xl group-hover:text-primary'/>
-                            </TooltipTrigger>
-                            <TooltipContent>
-                              <p>GitHub</p>
-                            </TooltipContent>
-                          </Tooltip>
-                        </TooltipProvider>
-                      </Link>
+                      {project.live && (
+                        <Link href={project.live}>
+                          <TooltipProvider delayDuration={100} >
+                            <Tooltip>
+                              <TooltipTrigger className='w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group'>
+                                <BsArrowUpRight className='text-white text-2xl group-hover:text-primary'/>
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <p>GitHub</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                        </Link>
+                      )}
                     </div>
 
               </div>

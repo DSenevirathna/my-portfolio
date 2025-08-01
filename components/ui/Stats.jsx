@@ -14,7 +14,7 @@ const stats = [
         text: "Technologies Mastered"
     },
     {
-        num: 300,
+        num: 85,
         text: "Code Commits"
     }
     
@@ -26,7 +26,7 @@ const stats = [
 const Stats = () => {
   return (
     <section className='pt-4 pb-12 xl:pt-0 xl:pb-0'>
-        <div className="container mx-auto">
+        <div className="container mx-auto px-4 xl:px-8 2xl:px-16">
             <div className='flex flex-wrap gap-6 max-w-[80vw] mx-auto xl:max-w-none'>
                 {stats.map((item,index) => {
                     return(
