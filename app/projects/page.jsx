@@ -4,6 +4,12 @@ import React,{useState} from 'react'
 import {motion} from 'framer-motion'
 import {Swiper , SwiperSlide} from 'swiper/react'
 import "swiper/css";
+import link1 from '../../public/thumb1.png';
+import link2 from '../../public/thumb2.png';
+import link3 from '../../public/thumb3.png';
+import link4 from '../../public/thumb4.png';
+
+import WorkSliderBtns from '@/components/ui/WorkSliderBtns'
 
 import {BsArrowUpRight,BsGithub} from 'react-icons/bs'
 import {
@@ -29,7 +35,7 @@ const projects = [
       {name: "Framer Motion" },
       
     ],
-    image:'/assets/work/thumb-5.png',
+    image:link1,
     live:'link',
   },
 
@@ -47,7 +53,7 @@ const projects = [
       {name: "MySQL" },
       
     ],
-    image:'/assets/work/thumb-2.png',
+    image:link2,
     live:'link',
   },
 
@@ -61,7 +67,7 @@ const projects = [
       
       
     ],
-    image:'/assets/work/thumb-4.png',
+    image:link3,
     live:'link',
   },
 
@@ -75,23 +81,11 @@ const projects = [
       
       
     ],
-    image:'/assets/work/thumb-3.png',
+    image:link4,
     live:'link',
   },
   
-  {
-    num:'05',
-    category:'Hardware Project-Micro Controller Based',
-    title:'Micro Controller Based Ventilater',
-    description:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque explicabo perferendis obcaecati delectus hic consequuntur, reiciendis, consectetur velit quo veniam ratione modi veritatis nobis placeat quaerat ut nihil vitae autem.',
-    stack:[
-      {name: "Arduino" },
-      
-      
-    ],
-    image:'/assets/work/thumb-3.png',
-    live:'link',
-  },
+
 
 ];
 
@@ -108,7 +102,7 @@ const work = () => {
   return (
     <motion.section
       initial={{opacity:0}}
-      animate={{opacity:1}}
+      animate={{opacity:1, transition: {delay:2.4 , duration:0.4 , ease:"easeIn"}}}
       className='min-h-[80vh] flex flex-col justify-center py-12 xl:px-0'
     >
       <div className='container mx-auto'>
@@ -163,8 +157,24 @@ const work = () => {
                       
               >
                 {projects.map((project, index) => {
-                  return <SwiperSlide key={index}>slide</SwiperSlide>;
+                  return <SwiperSlide key={index} className='w-full'>
+                    <div className='h-[460px] relative group flex justify-center items-center bg-pink-50/20'>
+                        {/*overlay*/}
+                        <div className='absolute top-0 bottom-0 w-full h-full bg-black/10 z-10'></div>
+                        {/*image*/}
+                        <div className='relative w-full h-full'>
+                          <Image src={project.image} fill className='object-cover ' alt=""/>
+                        </div>
+                    </div>
+                  </SwiperSlide>;
                 })}
+                {/*slider buttons */}
+                <WorkSliderBtns 
+                  
+                  containerStyles="flex gap-2 absolute right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-none"
+                  btnStyles=" cursor-pointer bg-primary hover:bg-primary/50 text-white text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all"
+                />
+
               </Swiper>
             </div>
           </div>
