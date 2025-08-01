@@ -122,71 +122,98 @@ const resume = () => {
       opacity:1,
       transition:{delay: 2.4 , duration: 0.4 , ease: "easeIn"}
     }}
-    className='min-h-[80vh] flex items-center justify-center py-12 xl:py-0'
+    className='min-h-[80vh] flex items-center justify-center py-12 xl:py-0 relative overflow-hidden'
    >
-    <div className="container mx-auto px-4 xl:px-8 2xl:px-16">
+    {/* Background Effects */}
+    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10"></div>
+    <div className="absolute top-20 left-20 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
+    <div className="absolute bottom-20 right-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
+    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-primary/5 rounded-full blur-3xl animate-pulse delay-500"></div>
+    
+    <div className="container mx-auto px-4 xl:px-8 2xl:px-16 relative z-10">
       <Tabs defaultValue="education" 
             className="flex flex-col xl:flex-row gap-[60px]"
       >
         <TabsList 
-          className="'flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-6"
+          className="flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4"
         >
-          <TabsTrigger value="education">Education</TabsTrigger>
-          <TabsTrigger value="skills">Skills</TabsTrigger>
-          <TabsTrigger value="about">About me</TabsTrigger>
+          <TabsTrigger value="education" className="data-[state=active]:bg-primary/20 data-[state=active]:text-primary transition-all duration-300">Education</TabsTrigger>
+          <TabsTrigger value="skills" className="data-[state=active]:bg-primary/20 data-[state=active]:text-primary transition-all duration-300">Skills</TabsTrigger>
+          <TabsTrigger value="about" className="data-[state=active]:bg-primary/20 data-[state=active]:text-primary transition-all duration-300">About me</TabsTrigger>
         </TabsList>
 
         {/*content*/}
         <div className='min-h-[70vh] w-full'>
           {/*education*/}
           <TabsContent value="education" className="w-full">
-            <div className='flex flex-col gap-[30px] text-center xl:text-left'>
-              <h3 className='text-4xl font-bold' >{education.title}</h3>
-              <p className='max-w-[600px] text-white/60 mx-auto xl:mx-0'>{education.Description}</p>
+            <motion.div 
+              className='flex flex-col gap-[30px] text-center xl:text-left'
+              initial={{opacity: 0, y: 20}}
+              animate={{opacity: 1, y: 0}}
+              transition={{delay: 0.2}}
+            >
+              <h3 className='text-4xl font-bold bg-gradient-to-r from-white to-primary bg-clip-text text-transparent'>{education.title}</h3>
+              <p className='max-w-[600px] text-white/60 mx-auto xl:mx-0 leading-relaxed'>{education.Description}</p>
 
               <ScrollArea className="h-[400px]">
                 <ul className='grid grid-cols-1 lg:grid-cols-2 gap-[30px]'>
                   {education.items.map((item, index)=>{
                     return(
-                      <li
+                      <motion.li
                         key={index}
-                        className='bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1'
+                        className='bg-white/5 backdrop-blur-sm border border-white/10 h-[184px] py-6 px-10 rounded-2xl flex flex-col justify-center items-center lg:items-start gap-1 hover:bg-white/10 transition-all duration-300'
+                        initial={{opacity: 0, y: 20}}
+                        animate={{opacity: 1, y: 0}}
+                        transition={{delay: 0.3 + index * 0.1}}
+                        whileHover={{scale: 1.02}}
                       >
                         
-                        <h3 className='text-xl max-w[260px] min-h-[60px] text-center lg:text-left'>{item.degree}</h3>
+                        <h3 className='text-xl max-w[260px] min-h-[60px] text-center lg:text-left font-semibold'>{item.degree}</h3>
                         <div className='flex items-center gap-2'>
                             <span className='w-[6px] h-[6px] rounded-full bg-primary'></span> {/*dot */}
                             <p className='text-white/60'>{item.institution}</p>
                         </div>
-                        <span className='text-primary'>{item.duration}</span>
+                        <span className='text-primary font-medium'>{item.duration}</span>
                        
 
-                      </li>
+                      </motion.li>
                     )
                   })}
 
                 </ul>
 
               </ScrollArea>
-            </div>
+            </motion.div>
 
           </TabsContent>
 
            {/*skills*/}
            <TabsContent value="skills" className="w-full h-full">
-            <div className='flex flex-col gap-[30px]'>
+            <motion.div 
+              className='flex flex-col gap-[30px]'
+              initial={{opacity: 0, y: 20}}
+              animate={{opacity: 1, y: 0}}
+              transition={{delay: 0.2}}
+            >
               <div className='flex flex-col gap-[30px] text-center xl:text-left'>
-                <h3 className='text-4xl font-bold'>{skills.title}</h3>
-                <p className='max-w-[600px] text-white/60 mx-auto xl:mx-0'>{skills.Description}</p>
+                <h3 className='text-4xl font-bold bg-gradient-to-r from-white to-primary bg-clip-text text-transparent'>{skills.title}</h3>
+                <p className='max-w-[600px] text-white/60 mx-auto xl:mx-0 leading-relaxed'>{skills.Description}</p>
               </div>
               <ul className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[30px]'>
                 {skills.skillList.map((skill, index) =>{
                   return(
-                    <li key={index}>
+                    <motion.li 
+                      key={index}
+                      initial={{opacity: 0, y: 20}}
+                      animate={{opacity: 1, y: 0}}
+                      transition={{delay: 0.3 + index * 0.05}}
+                      whileHover={{scale: 1.05}}
+                      whileTap={{scale: 0.95}}
+                    >
                       <TooltipProvider delayDuration={100}>
                         <Tooltip>
-                          <TooltipTrigger className='w-full h-[150px] bg-[#232329] rounded-xl flex justify-center items-center group'>
-                            <div className='text-6xl group-hover:text-[#F5921F] transition-all duration-300 cursor-pointer'>
+                          <TooltipTrigger className='w-full h-[150px] bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl flex justify-center items-center group hover:bg-white/10 transition-all duration-300'>
+                            <div className='text-6xl group-hover:text-primary transition-all duration-300 cursor-pointer'>
                               {skill.icon}
 
                             </div>
@@ -197,37 +224,49 @@ const resume = () => {
                         </Tooltip>
                       </TooltipProvider>
 
-                    </li>
+                    </motion.li>
 
                   )
                 })}
               </ul>
 
-            </div>
+            </motion.div>
 
           </TabsContent>
 
            {/*about me*/}
            <TabsContent value="about" className="w-full">
-            <div className='flex flex-col gap-[30px]'>
+            <motion.div 
+              className='flex flex-col gap-[30px]'
+              initial={{opacity: 0, y: 20}}
+              animate={{opacity: 1, y: 0}}
+              transition={{delay: 0.2}}
+            >
               <div className='text-center xl:text-left'>
-                <h3 className='text-4xl font-bold mb-4'>{about.title}</h3>
-                <p className='max-w-[600px] text-white/60 mx-auto xl:mx-0'>{about.Description}</p>
+                <h3 className='text-4xl font-bold mb-4 bg-gradient-to-r from-white to-primary bg-clip-text text-transparent'>{about.title}</h3>
+                <p className='max-w-[600px] text-white/60 mx-auto xl:mx-0 leading-relaxed'>{about.Description}</p>
               </div>
               
-              <div className='bg-[#232329] rounded-xl p-8 max-w-[800px] mx-auto xl:mx-0'>
+              <div className='bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 max-w-[800px] mx-auto xl:mx-0'>
                 <ul className='grid grid-cols-1 gap-6'>
                   {about.info.map((item,index) => {
                     return(
-                      <li key={index} className='flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 p-4 border-b border-white/10 last:border-b-0'>
+                      <motion.li 
+                        key={index} 
+                        className='flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 p-4 border-b border-white/10 last:border-b-0 hover:bg-white/5 rounded-lg transition-all duration-300'
+                        initial={{opacity: 0, x: -20}}
+                        animate={{opacity: 1, x: 0}}
+                        transition={{delay: 0.3 + index * 0.1}}
+                        whileHover={{x: 5}}
+                      >
                         <span className='text-white/60 font-medium min-w-[120px]'>{item.fieldName}:</span>
                         <span className='text-xl text-white font-semibold'>{item.fieldValue}</span>
-                      </li>
+                      </motion.li>
                     )
                   })}
                 </ul>
               </div>
-            </div>
+            </motion.div>
             
           </TabsContent>
 

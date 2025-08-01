@@ -24,7 +24,7 @@ const Photo = () => {
                 opacity: 1,
                 transition : {delay : 2.4 , duration: 0.4 , ease:"easeInOut"},
               }}
-              className="absolute inset-0 m-auto w-[298px] h-[298px] xl:w-[400px] xl:h-[400px] mix-blend-lighten flex items-center justify-center"
+              className="absolute inset-0 m-auto w-[298px] h-[298px] xl:w-[400px] xl:h-[400px] flex items-center justify-center"
             >
               <Image
                 src={profilePic}
@@ -32,7 +32,7 @@ const Photo = () => {
                 quality={100}
                 fill
                 alt='my-photo'
-                className='rounded-full object-contain'
+                className='rounded-full object-cover'
               />
             </motion.div>
 
