@@ -1,6 +1,6 @@
 "use client"
 
-import React from 'react'
+import React, { useState } from 'react'
 import {Button} from '@/components/ui/button'
 import {Input} from '@/components/ui/input'
 import {Textarea} from '@/components/ui/textarea'
@@ -40,6 +40,83 @@ import {motion} from 'framer-motion'
 
 
 const contact = () => {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    service: '',
+    message: ''
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleInputChange = (field, value) => {
+    setFormData(prev => ({
+      ...prev,
+      [field]: value
+    }));
+  };
+
+  const validateForm = () => {
+    return formData.firstName && 
+           formData.lastName && 
+           formData.email && 
+           formData.phone && 
+           formData.service && 
+           formData.message;
+  };
+
+  const sendMessage = async () => {
+    if (!validateForm()) {
+      alert('Please fill in all fields before sending the message.');
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const subject = "New Project Inquiry - Devdini Senevirathna";
+      const body = `Hi Devdini,
+
+You have received a new project inquiry:
+
+Client Details:
+- Name: ${formData.firstName} ${formData.lastName}
+- Email: ${formData.email}
+- Phone: ${formData.phone}
+
+Project Details:
+- Service Type: ${formData.service}
+- Message: ${formData.message}
+
+Please respond to this inquiry at your earliest convenience.
+
+Best regards,
+Portfolio Contact Form`;
+
+      const mailtoLink = `mailto:devdinichaniya2001@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      
+      window.open(mailtoLink, '_blank');
+      
+      // Reset form after successful submission
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        service: '',
+        message: ''
+      });
+      
+      alert('Message sent successfully! Please check your email client.');
+    } catch (error) {
+      alert('There was an error sending the message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
    <motion.section
     initial={{opacity: 0}}
@@ -55,25 +132,45 @@ const contact = () => {
        <div className='xl:w-[54%] order-2 xl:order-none' >
           <form className='flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl'>
             <h3 className='text-4xl text-[#F5921F]'>Let's work together</h3>
-            <p className='text-white/60'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil, animi cum quia optio totam itaque non magni possimus accusamus dolorem doloremque. Ab ipsa molestias rerum laborum animi ipsam aspernatur est!</p>
+            <p className='text-white/60'>Ready to bring your ideas to life? I'm passionate about creating innovative web solutions and would love to collaborate on your next project. Whether you need a stunning website, a powerful web application, or creative UI/UX design, let's discuss how we can turn your vision into reality.</p>
             {/*input*/}
             <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-              <Input type="firstname" placeholder="First Name" />
-              <Input type="lastname" placeholder="Last Name" />
-              <Input type="email" placeholder="Email" />
-              <Input type="phone" placeholder="Phone Number" />
+              <Input 
+                type="text" 
+                placeholder="First Name" 
+                value={formData.firstName}
+                onChange={(e) => handleInputChange('firstName', e.target.value)}
+              />
+              <Input 
+                type="text" 
+                placeholder="Last Name" 
+                value={formData.lastName}
+                onChange={(e) => handleInputChange('lastName', e.target.value)}
+              />
+              <Input 
+                type="email" 
+                placeholder="Email" 
+                value={formData.email}
+                onChange={(e) => handleInputChange('email', e.target.value)}
+              />
+              <Input 
+                type="tel" 
+                placeholder="Phone Number" 
+                value={formData.phone}
+                onChange={(e) => handleInputChange('phone', e.target.value)}
+              />
 
             </div>
             {/*select*/}
-            <Select>
+            <Select onValueChange={(value) => handleInputChange('service', value)} value={formData.service}>
               <SelectTrigger className="w-full">
                 <SelectValue placeholder=" Select a Service"/>
               </SelectTrigger>
               <SelectContent>
                 <SelectGroup>
                   <SelectLabel>Select a Service</SelectLabel>
-                  <SelectItem value="est">Web Development</SelectItem>
-                  <SelectItem value="cst">UI/UX Design</SelectItem>
+                  <SelectItem value="Web Development">Web Development</SelectItem>
+                  <SelectItem value="UI/UX Design">UI/UX Design</SelectItem>
                   
                 </SelectGroup>
               </SelectContent>
@@ -82,9 +179,18 @@ const contact = () => {
             <Textarea 
               className="h-[200px]"
               placeholder="Type your message here"
+              value={formData.message}
+              onChange={(e) => handleInputChange('message', e.target.value)}
             />
             {/*btn*/}
-            <Button size="md" className="max-w-40">Send Message</Button>
+            <Button 
+              size="md" 
+              className="max-w-40" 
+              onClick={sendMessage}
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? 'Sending...' : 'Send Message'}
+            </Button>
 
 
 
