@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react'
-import {Sheet,SheetContent , SheetTrigger} from '../ui/sheet'
+import {Sheet,SheetContent , SheetTrigger, SheetTitle} from '../ui/sheet'
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import {CiMenuFries} from 'react-icons/ci';
@@ -44,6 +44,7 @@ const MobileNav = () => {
             </motion.div>
         </SheetTrigger>
         <SheetContent className="flex flex-col bg-white/5 backdrop-blur-sm border-white/10">
+            <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
             <motion.div 
               className='mt-32 mb-40 text-center text-2xl'
               initial={{opacity: 0, y: -20}}

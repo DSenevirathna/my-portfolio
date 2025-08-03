@@ -3,6 +3,7 @@
 import React,{useState} from 'react'
 import {motion} from 'framer-motion'
 import {Swiper , SwiperSlide} from 'swiper/react'
+import TextType from '@/components/ui/TextType';
 import "swiper/css";
 import link1 from '../../public/thumb1.png';
 import link2 from '../../public/thumb2.png';
@@ -123,14 +124,19 @@ const work = () => {
                     {project.num}
                   </motion.div>
                    {/*project category*/}
-                   <motion.h2
-                    className='text-[42px] font-bold leading-none text-white group-hover:text-primary transition-all duration-500 capitalize'
-                    initial={{opacity: 0, y: 20}}
-                    animate={{opacity: 1, y: 0}}
-                    transition={{delay: 0.3}}
-                   >
-                     {project.category}
-                   </motion.h2>
+                   
+                     <TextType 
+                         key={project.num}
+                         text={project.category}
+                         className='font-semibold text-4xl'
+                         typingSpeed={100}
+                         pauseDuration={1000}
+                         showCursor={false}
+                         cursorCharacter="|"
+                         loop={false}
+                         initialDelay={0}
+                     />
+                   
 
                     {/*project description*/}
                     <motion.p 

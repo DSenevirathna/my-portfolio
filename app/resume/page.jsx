@@ -27,10 +27,7 @@ const about={
       fieldName: "Name",
       fieldValue : "Devdini Senevirathna  "
     },
-    {
-      fieldName: "Phone",
-      fieldValue : "(+94) 76 547 0666"
-    },
+    
    
     {
       fieldName: "Freelance",

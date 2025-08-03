@@ -8,6 +8,7 @@ import Photo from '@/components/ui/Photo'
 import BlurText from "@/components/ui/BlurText";
 import Stats from "@/components/ui/Stats"
 import { motion } from 'framer-motion';
+import ShinyText from '@/components/ui/ShinyText';
 
 const Home = () => {
   const downloadCV = () => {
@@ -42,7 +43,7 @@ const Home = () => {
               animate={{opacity: 1, y: 0}}
               transition={{delay: 0.3}}
             >
-              Software Developer
+              <ShinyText text="Software Developer" disabled={false} speed={3} className='custom-class' />
             </motion.span>
             <motion.h1 
               className='h1 mb-6'

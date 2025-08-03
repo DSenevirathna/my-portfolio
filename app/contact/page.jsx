@@ -19,11 +19,7 @@ import { FaPhoneAlt , FaEnvelope , FaMapMarkedAlt} from 'react-icons/fa'
 
 
 const info =[
-  {
-    icon: <FaPhoneAlt/>,
-    title:"Phone",
-    description: "(+94) 76 547 0666"
-  },
+  
   {
     icon: <FaEnvelope/>,
     title:"Email",
