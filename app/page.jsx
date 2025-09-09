@@ -9,6 +9,7 @@ import BlurText from "@/components/ui/BlurText";
 import Stats from "@/components/ui/Stats"
 import { motion } from 'framer-motion';
 import ShinyText from '@/components/ui/ShinyText';
+import ParticlesBackground from '@/components/ui/particles-background';
 
 const Home = () => {
   const downloadCV = () => {
@@ -22,12 +23,13 @@ const Home = () => {
 
   return (
     <section className='h-full relative overflow-hidden'>
+      {/* Particles Background */}
+      <ParticlesBackground />
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10"></div>
       <div className="absolute top-20 left-20 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute bottom-20 right-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-primary/5 rounded-full blur-3xl animate-pulse delay-500"></div>
-      
       <div className='container mx-auto h-full px-4 xl:px-8 2xl:px-16 relative z-10'>
         <div className='flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24'>
           {/*text*/}
