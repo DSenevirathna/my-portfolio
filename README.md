@@ -71,31 +71,6 @@ my-portfolio/
 
 ---
 
-## 🖼️ Screenshots
-
-<p align="center">
-  <img src="public/thumb1.png" alt="Portfolio Screenshot 1" width="300"/>
-  <img src="public/thumb2.png" alt="Portfolio Screenshot 2" width="300"/>
-  <img src="public/thumb3.png" alt="Portfolio Screenshot 3" width="300"/>
-</p>
-
----
-
-## 📄 Resume
-
-- [Download my resume (PDF)](public/Devdini-Senevirathna.pdf)
-
----
-
-## 📬 Contact
-
-- **Email:** devdini.senevirathna@gmail.com
-- **LinkedIn:** [linkedin.com/in/devdini-senevirathna](https://linkedin.com/in/devdini-senevirathna)
-- **GitHub:** [github.com/DSenevirathna](https://github.com/DSenevirathna)
-
-Or use the contact form on the website!
-
----
 
 ## 🌐 Live Demo
 
